@@ -15,17 +15,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colocarFilmeNoArray()
         tableViewSetup()
+        self.filmeService = FilmeService(delegate: self)
         self.filmeService.listagemFilmes()
         
-    }
-    
-    func colocarFilmeNoArray(){
-        for filme in FilmeViewModel.getViews() {
-            filmes.append(filme)
-        }
-      
     }
     
     func tableViewSetup(){
@@ -48,7 +41,6 @@ class ViewController: UIViewController {
     
     func tableViewDelegates(){
         
-        self.filmeService = FilmeService(delegate: self)
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -100,7 +92,9 @@ extension ViewController:ServiceDelegate{
     
     
     func sucess(type: ResponseType) {
-        print("Requisição feita com sucesso!")
+        
+        self.filmes = FilmeViewModel.getViews()
+        tableView.reloadData()
        
     }
     
