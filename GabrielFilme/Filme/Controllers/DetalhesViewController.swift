@@ -14,6 +14,7 @@ class DetalhesViewController: UIViewController {
     @IBOutlet weak var lbPopulariedade: UILabel!
     @IBOutlet weak var lbDatadeLancamento: UILabel!
     @IBOutlet weak var lbGenero: UILabel!
+    @IBOutlet weak var lbSinopse: UILabel!
     
     var detalhes:[DetalhesView] = []
     var detalhesService: FilmeService!
@@ -24,6 +25,7 @@ class DetalhesViewController: UIViewController {
     var popularidade:Double = 0.0
     var dataLancamento:String = ""
     var url:String = ""
+    var descricao:String = ""
     
     
     
@@ -53,6 +55,7 @@ class DetalhesViewController: UIViewController {
         self.lbNome.text = self.filmeNome
         self.lbPopulariedade.text = "\(self.popularidade)"
         self.lbDatadeLancamento.text = self.dataLancamento
+        self.lbSinopse.text = self.descricao
         
     }
     

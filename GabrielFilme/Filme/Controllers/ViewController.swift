@@ -60,7 +60,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource{
         detalhesStoryBoard.popularidade = filmes[indexPath.row].popularity
         detalhesStoryBoard.dataLancamento = filmes[indexPath.row].release_date
         detalhesStoryBoard.url = "https://image.tmdb.org/t/p/w185\(filmes[indexPath.row].urlImage)"
-        
+        detalhesStoryBoard.descricao = filmes[indexPath.row].overview
         detalhesStoryBoard.modalPresentationStyle = .fullScreen
         self.present(detalhesStoryBoard, animated: true)
         
